@@ -1,14 +1,22 @@
 import Head from "next/head";
-import TicketsTable from "../components/TicketsTable/TicketsTable";
+import TicketsList from "../components/TicketsList/TicketsList";
 
-const DUMMY_DATA = [
+const DUMMY_TICKETS = [
   {
-    ticketId: "123123",
-    owner: "Johnny Smith",
+    id: 1,
+    name: "Johnny Smith",
     title: "This is a ticket",
     description: "Error within the hello user page",
   },
+  {
+    id: 2,
+    name: "Johnny Wacky",
+    title: "This is a second ticket",
+    description: "Error within the welcome user page",
+  },
 ];
+
+console.log(DUMMY_TICKETS);
 
 const MainPage = (props) => {
   return (
@@ -17,7 +25,8 @@ const MainPage = (props) => {
       <Head>
         <title>Single Review Ticket</title>
       </Head>
-      <TicketsTable tickets={props.tickets} />
+
+      <TicketsList ticket={props.tickets} />
     </>
   );
 };
@@ -25,9 +34,8 @@ const MainPage = (props) => {
 export async function getStaticProps() {
   return {
     props: {
-      tickets: DUMMY_DATA,
+      tickets: DUMMY_TICKETS,
     },
-    revalidate: 10,
   };
 }
 
