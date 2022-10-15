@@ -14,6 +14,12 @@ const DUMMY_TICKETS = [
     title: "This is a second ticket",
     description: "Error within the welcome user page",
   },
+  {
+    id: 3,
+    name: "Johnny OD",
+    title: "This is a third ticket",
+    description: "Error within the main user page",
+  },
 ];
 
 console.log(DUMMY_TICKETS);
@@ -26,7 +32,7 @@ const MainPage = (props) => {
         <title>Single Review Ticket</title>
       </Head>
 
-      <TicketsList ticket={props.tickets} />
+      <TicketsList ticket={props.tickets} suppressHydrationWarning />
     </>
   );
 };
